@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptateur de CV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Adaptateur de CV</h1>
+            <p class="subtitle">Personnalisez votre CV pour correspondre parfaitement à l'offre d'emploi</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="cv_file">Téléchargez votre CV (format .docx)</label>
+                        <div class="file-upload">
+                            <input type="file" id="cv_file" name="cv_file" accept=".docx" required>
+                            <div class="file-upload-label">
+                                <span id="file-name">Aucun fichier sélectionné</span>
+                                <button type="button" class="btn-browse">Parcourir</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="job_description">Description du poste</label>
+                        <textarea id="job_description" name="job_description" rows="10" placeholder="Copiez-collez ici la description complète du poste..." required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Adapter mon CV</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="info-section">
+                <h2>Comment ça marche ?</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Téléchargez votre CV</h3>
+                            <p>Importez votre CV au format Word (.docx)</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Ajoutez la description du poste</h3>
+                            <p>Copiez-collez le texte complet de l'annonce d'emploi</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Téléchargez votre CV adapté</h3>
+                            <p>Recevez une version personnalisée de votre CV optimisée pour cette offre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Adaptateur de CV - Tous droits réservés</p>
+        </footer>
+    </div>
+
+    <script>
+        // Script pour afficher le nom du fichier sélectionné
+        document.getElementById('cv_file').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'Aucun fichier sélectionné';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        
+        // Déclencher le clic sur l'input file quand on clique sur le bouton parcourir
+        document.querySelector('.btn-browse').addEventListener('click', function() {
+            document.getElementById('cv_file').click();
+        });
+    </script>
+</body>
+</html>

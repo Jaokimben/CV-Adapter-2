@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page non trouvée</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Adaptateur de CV</h1>
+            <p class="subtitle">Page non trouvée</p>
+        </header>
+        
+        <main>
+            <div class="card error-card">
+                <div class="error-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <h2>Page non trouvée (404)</h2>
+                <p>La page que vous recherchez n'existe pas ou a été déplacée.</p>
+                
+                <div class="back-section">
+                    <a href="{{ url_for('index') }}" class="btn-primary">Retour à l'accueil</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Adaptateur de CV - Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>
